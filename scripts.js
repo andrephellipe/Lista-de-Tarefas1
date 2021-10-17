@@ -4,7 +4,7 @@ let tarefa = document.getElementById("nome-tarefa-id")
 let listaCompleta = document.getElementById("tarefas")
 
 let arrayDeTarefas = []
-recarregarTarefas()
+//recarregarTarefas()
 
 function mostrarTarefas(){
     let novaLi = ''
@@ -52,12 +52,12 @@ function concluirTarefa(index){
     mostrarTarefas()
 }
 
-function recarregarTarefas(){
+/*function recarregarTarefas(){
     let minhasTarefas = localStorage.getItem("lista")
 
     arrayDeTarefas = JSON.parse(minhasTarefas)
 
     mostrarTarefas()
-}
+}*/
 
 button.addEventListener("click", adicionarTarefa)
