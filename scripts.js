@@ -4,7 +4,7 @@ let tarefa = document.getElementById("nome-tarefa-id")
 let listaCompleta = document.getElementById("tarefas")
 
 let arrayDeTarefas = []
-//recarregarTarefas()
+recarregarTarefas()
 
 function mostrarTarefas(){
     let novaLi = ''
@@ -38,11 +38,18 @@ function deletarTarefa(index){
 }
 
 function adicionarTarefa(){
+
+    if(input.value){
     arrayDeTarefas.push({
         tarefa: input.value,
         status: false
     })
+}
+else{
+    alert("Digite uma tarefa")
+}
 
+    input.value = ""
     mostrarTarefas()
 }
 
@@ -52,12 +59,24 @@ function concluirTarefa(index){
     mostrarTarefas()
 }
 
-/*function recarregarTarefas(){
+function recarregarTarefas(){
     let minhasTarefas = localStorage.getItem("lista")
+
+    if(minhasTarefas){
 
     arrayDeTarefas = JSON.parse(minhasTarefas)
 
     mostrarTarefas()
-}*/
+    }
+}
+
+function adicionarPeloEnter(teclas){
+
+    if(teclas.key === "Enter"){
+        adicionarTarefa()
+    }
+}
 
 button.addEventListener("click", adicionarTarefa)
+
+document.addEventListener("keypress", adicionarPeloEnter)
